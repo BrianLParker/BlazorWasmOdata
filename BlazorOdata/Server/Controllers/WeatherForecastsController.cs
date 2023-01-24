@@ -26,9 +26,7 @@ namespace BlazorOdata.Server.Controllers
         /// <returns></returns>
         [HttpGet]
         [EnableQuery]
-        public IQueryable<WeatherForecast> Get()
-        {
-            return weatherForecastService.WeatherForecasts;
-        }
+        public IQueryable<WeatherForecast> Get() 
+            => weatherForecastService.WeatherForecasts;
     }
 }
