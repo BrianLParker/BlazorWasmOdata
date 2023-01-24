@@ -1,0 +1,40 @@
+﻿@page "/fetchdata"
+@using BlazorOdata.Client.Models;
+@using BlazorOdata.Shared
+@using Microsoft.AspNetCore.Components.QuickGrid;
+@inject HttpClient Http
+
+<PageTitle>Weather forecast</PageTitle>
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+
+
+    <QuickGrid ItemsProvider=itemsProvider
+           TGridItem="WeatherForecast"
+           Class="table table-bordered table-striped table-sm table-hover"
+           Virtualize=true>
+
+        <PropertyColumn Property="weatherForecast => weatherForecast!.Date"
+                    Title="Date"
+                    Sortable="true"
+                    IsDefaultSort=SortDirection.Ascending />
+
+        <PropertyColumn Property="weatherForecast => weatherForecast!.TemperatureF"
+                    Title="Temperature (F)"
+                    Sortable="true" />
+
+        <PropertyColumn Property="weatherForecast => weatherForecast!.TemperatureC"
+                    Title="Temperature (C)"
+                    Sortable="true" />
+
+        <PropertyColumn Property="weatherForecast => weatherForecast!.Summary"
+                    Title="Summary"
+                    Sortable="true" />
+
+    </QuickGrid>
+
+
+
